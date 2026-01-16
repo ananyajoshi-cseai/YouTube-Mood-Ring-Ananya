@@ -70,10 +70,10 @@ The script saves a CSV file (`comments_VIDEO-ID.csv`) with the raw data and open
 ## 📸 Screenshots
 
 ### Sentiment Dashboard
-![Dashboard](dashboard.png)
+![Dashboard](example_dashboard.png)
 
 ### Word Cloud
-![Word Cloud](wordcloud.png)
+![Word Cloud](example_wordcloud.png)
 
 ## 📄 License
 
