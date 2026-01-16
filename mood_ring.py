@@ -91,7 +91,7 @@ def analyze_sentiment(df):
     df['category'] = df['compound_score'].apply(categorize)
     return df
 
-# --- PART 4: WORD CLOUD (I added this back!) ---
+# --- PART 4: WORD CLOUD ---
 def show_wordcloud(df):
     if not WORDCLOUD_AVAILABLE or df.empty: return
     
@@ -107,7 +107,7 @@ def show_wordcloud(df):
     plt.title("Most Frequent Words")
     plt.show()
 
-# --- PART 5: DASHBOARD (With Time Series) ---
+# --- PART 5: DASHBOARD ---
 def visualize_dashboard(df):
     if df.empty: return
 
@@ -177,3 +177,4 @@ if __name__ == "__main__":
         
         # 2. Then Show Dashboard
         visualize_dashboard(df)
+
