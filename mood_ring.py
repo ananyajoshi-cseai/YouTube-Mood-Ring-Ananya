@@ -33,12 +33,11 @@ analyzer = SentimentIntensityAnalyzer()
 # --- HELPER: EXTRACT ID FROM URL ---
 def extract_video_id(url_or_id):
     # Regex to find the 11-character ID
-    # Works on: https://www.youtube.com/watch?v=ID, https://youtu.be/ID, or just ID
     regex = r"(?:v=|\/)([0-9A-Za-z_-]{11}).*"
     match = re.search(regex, url_or_id)
     if match:
         return match.group(1)
-    return url_or_id  # If no match, assume user pasted the ID directly
+    return url_or_id
 
 # --- PART 2: THE FETCH ---
 def get_video_comments(video_id, max_comments=1000):
@@ -63,7 +62,7 @@ def get_video_comments(video_id, max_comments=1000):
                     'text': comment['textDisplay'],
                     'likes': comment['likeCount'],
                     'author': comment['authorDisplayName'],
-                    'date': comment['publishedAt'] # [cite: 346]
+                    'date': comment['publishedAt']
                 })
             
             next_page_token = response.get('nextPageToken')
@@ -92,7 +91,23 @@ def analyze_sentiment(df):
     df['category'] = df['compound_score'].apply(categorize)
     return df
 
-# --- PART 4: VISUALS (UPDATED) ---
+# --- PART 4: WORD CLOUD (I added this back!) ---
+def show_wordcloud(df):
+    if not WORDCLOUD_AVAILABLE or df.empty: return
+    
+    print("--- Generating Word Cloud ---")
+    text = " ".join(comment for comment in df.text.astype(str))
+    
+    # Create cloud
+    wc = WordCloud(width=800, height=400, background_color='white', colormap='viridis').generate(text)
+    
+    plt.figure(figsize=(10, 5))
+    plt.imshow(wc, interpolation='bilinear')
+    plt.axis("off")
+    plt.title("Most Frequent Words")
+    plt.show()
+
+# --- PART 5: DASHBOARD (With Time Series) ---
 def visualize_dashboard(df):
     if df.empty: return
 
@@ -126,17 +141,11 @@ def visualize_dashboard(df):
     ax3.set_ylabel('Likes')
     ax3.axvline(0, color='grey', linestyle='--')
 
-    # 4. NEW FEATURE: Time Series Analysis 
+    # 4. Time Series Analysis
     ax4 = plt.subplot(2, 2, 4)
-    
-    # Convert string dates to datetime objects
     df['dt'] = pd.to_datetime(df['date'])
-    
-    # Resample by 'M' (Month) or 'D' (Day) depending on data size
-    # We calculate the MEAN sentiment score over time
     sentiment_over_time = df.set_index('dt').resample('M')['compound_score'].mean()
     
-    # Plot line
     sentiment_over_time.plot(ax=ax4, color='blue', marker='o', linestyle='-')
     ax4.set_title('Average Mood Over Time (Monthly)')
     ax4.set_ylabel('Avg Sentiment (-1 to +1)')
@@ -149,12 +158,12 @@ def visualize_dashboard(df):
 # --- MAIN EXECUTION ---
 if __name__ == "__main__":
     
-    # NOW YOU CAN PASTE THE FULL LINK!
+    # Replace with your video ID or Link
     VIDEO_URL = "https://www.youtube.com/watch?v=ERCMXc8x7mc" 
     
     video_id = extract_video_id(VIDEO_URL)
     
-    df = get_video_comments(video_id, max_comments=1000) # Increased to 1000 for better time data
+    df = get_video_comments(video_id, max_comments=1000)
     df = analyze_sentiment(df)
     
     if not df.empty:
@@ -163,4 +172,8 @@ if __name__ == "__main__":
             print(f"Saved CSV.")
         except: pass
 
+        # 1. Show Word Cloud First
+        show_wordcloud(df)
+        
+        # 2. Then Show Dashboard
         visualize_dashboard(df)
