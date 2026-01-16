@@ -67,6 +67,14 @@ A Python-based data science tool that performs automated sentiment analysis on Y
 
 The script saves a CSV file (`comments_VIDEO-ID.csv`) with the raw data and opens an interactive dashboard window.
 
+## 📸 Screenshots
+
+### Sentiment Dashboard
+![Dashboard](dashboard.png)
+
+### Word Cloud
+![Word Cloud](wordcloud.png)
+
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
