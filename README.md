@@ -49,12 +49,13 @@ A Python-based data science tool that performs automated sentiment analysis on Y
     pip install -r requirements.txt
     ```
 
-4.  **Configure API Key:**
-    * Create a file named `.env` in the root folder.
-    * Add your YouTube Data API Key:
-        ```env
-        YOUTUBE_API_KEY=your_api_key_here
-        ```
+4. **Configure API Key:**
+   * 🔑 **Need a key?** Go to the [Google Cloud Console](https://console.cloud.google.com/), create a project, enable "YouTube Data API v3", and generate an API Key.
+   * Create a file named `.env` in the root folder.
+   * Add your key like this:
+     ```
+     YOUTUBE_API_KEY=your_api_key_here
+     ```    ```
 
 5.  **Run the analysis:**
     * Open `mood_ring.py` and paste the YouTube Video URL you want to analyze.
@@ -62,6 +63,7 @@ A Python-based data science tool that performs automated sentiment analysis on Y
         ```bash
         python mood_ring.py
         ```
+     * **Tip:** Don't have an API key? You can check the `comments_ERCMXc8x7mc.csv` file included in this repo to see what the raw data looks like!
 
 ## 📈 Output
 
