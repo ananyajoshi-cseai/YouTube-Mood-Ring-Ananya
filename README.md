@@ -68,7 +68,28 @@ A Python-based data science tool that performs automated sentiment analysis on Y
 ## 📈 Output
 
 The script saves a CSV file ([comments_VIDEO-ID.csv](./comments_ERCMXc8x7mc.csv)) with the raw data...
+---
 
+## 🧠 How It Works: The Sentiment Logic
+
+The core of this project uses the **VADER (Valence Aware Dictionary and sEntiment Reasoner)** model. Unlike standard classifiers, VADER is specifically attuned to social media nuances.
+
+### 🔍 Analysis Pipeline
+1. **Preprocessing:** The script cleans the raw YouTube comment (removing extra whitespace, handling encoding).
+2. **Polarity Scoring:** VADER assigns a score to each word based on a pre-defined lexicon.
+3. **Contextual Scaling:** The model accounts for:
+    * **Intensity:** "EXTREMELY helpful" scores higher than "helpful".
+    * **Negation:** "Not good" is correctly identified as negative.
+    * **Contrast:** Using "but" shifts the sentiment weight (e.g., "The video was long, but very informative").
+
+### 📐 The Compound Score
+The tool calculates a **Compound Score** for every comment, normalized between `-1` (Most Negative) and `+1` (Most Positive):
+
+$$Compound \ Score \geq 0.05 \rightarrow \text{Positive}$$
+$$-0.05 < Compound \ Score < 0.05 \rightarrow \text{Neutral}$$
+$$Compound \ Score \leq -0.05 \rightarrow \text{Negative}$$
+
+---
 ## 📸 Screenshots
 
 ### Sentiment Dashboard
