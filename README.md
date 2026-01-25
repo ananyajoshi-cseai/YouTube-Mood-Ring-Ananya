@@ -74,14 +74,21 @@ The script saves a CSV file ([comments_VIDEO-ID.csv](./comments_ERCMXc8x7mc.csv)
 
 The core of this project uses the **VADER (Valence Aware Dictionary and sEntiment Reasoner)** model. Unlike standard classifiers, VADER is specifically attuned to social media nuances.
 
-### 🔍 Analysis Pipeline
-1. **Preprocessing:** The script cleans the raw YouTube comment (removing extra whitespace, handling encoding).
-2. **Polarity Scoring:** VADER assigns a score to each word based on a pre-defined lexicon.
-3. **Contextual Scaling:** The model accounts for:
-    * **Intensity:** "EXTREMELY helpful" scores higher than "helpful".
-    * **Negation:** "Not good" is correctly identified as negative.
-    * **Contrast:** Using "but" shifts the sentiment weight (e.g., "The video was long, but very informative").
+---
 
+## 📈 Analysis Output & Insights
+
+| 📄 Data Generation | 🧠 Sentiment Logic |
+| :--- | :--- |
+| **Raw Data:** The script exports a comprehensive `comments_VIDEO-ID.csv` file containing timestamps, raw text, and individual sentiment scores. | **VADER Model:** This project utilizes the *Valence Aware Dictionary and sEntiment Reasoner* to decode social media nuances like emojis and slang. |
+| **Visuals:** It automatically renders a high-resolution dashboard (`dashboard.png`) and a topic-based word cloud. | **Thresholds:** Comments are classified based on a compound score where: <br> • **Pos:** $\geq 0.05$ <br> • **Neu:** $(-0.05, 0.05)$ <br> • **Neg:** $\leq -0.05$ |
+
+### 🔍 Analysis Pipeline
+1. **Preprocessing:** The script cleans raw YouTube comments by removing extra whitespace and handling character encoding.
+2. **Polarity Scoring:** VADER assigns scores based on a specialized sentiment lexicon.
+3. **Contextual Scaling:** The engine accounts for intensity (e.g., "EXCITED"), negations ("not happy"), and contrastive conjunctions ("but").
+
+---
 ### 📐 The Compound Score
 The tool calculates a **Compound Score** for every comment, normalized between `-1` (Most Negative) and `+1` (Most Positive):
 
