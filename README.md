@@ -55,7 +55,7 @@ A Python-based data science tool that performs automated sentiment analysis on Y
    * Add your key like this:
      ```
      YOUTUBE_API_KEY=your_api_key_here
-     ```    ```
+     ```
 
 5.  **Run the analysis:**
     * Open `mood_ring.py` and paste the YouTube Video URL you want to analyze.
