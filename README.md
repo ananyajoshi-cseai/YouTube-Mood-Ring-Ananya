@@ -38,9 +38,9 @@ A Python-based data science tool that performs automated sentiment analysis on Y
 2.  **Set up the environment:**
     ```bash
     python -m venv venv
-    # Windows:
+    # For Windows:
     .\venv\Scripts\activate
-    # Mac/Linux:
+    # For Mac/Linux:
     source venv/bin/activate
     ```
 
