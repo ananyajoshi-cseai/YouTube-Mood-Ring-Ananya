@@ -108,3 +108,10 @@ $$Compound \ Score \leq -0.05 \rightarrow \text{Negative}$$
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👤 Author
+
+**Ananya Joshi**
+* B.Tech in Computer Science and Artificial Intelligence (CSE AI)
+* Indira Gandhi Delhi Technical University for Women (IGDTUW)
+
