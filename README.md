@@ -115,3 +115,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 * B.Tech in Computer Science and Artificial Intelligence (CSE AI)
 * Indira Gandhi Delhi Technical University for Women (IGDTUW)
 
+<p align="center">
+  <a href="https://www.linkedin.com/in/ananya-joshi-cseai/">LinkedIn</a>
+</p>
