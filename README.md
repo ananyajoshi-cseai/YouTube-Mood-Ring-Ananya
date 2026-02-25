@@ -14,7 +14,7 @@ A Python-based data science tool that performs automated sentiment analysis on Y
 * **Visual Dashboard:** Generates a professional dashboard with:
     * **Pie Chart:** Overall mood distribution.
     * **Bar Chart:** Comment volume by sentiment.
-    * **Scatter Plot:** Sentiment vs. Like Count.
+    * **Scatter Plot:** Graph of Sentiment vs. Like Count.
     * **Time Series Line:** Average mood over time.
     * **Word Cloud:** Most frequent topics discussed.
 
