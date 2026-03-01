@@ -50,7 +50,7 @@ A Python-based data science tool that performs automated sentiment analysis on Y
     ```
 
 4. **Configure API Key:**
-   * 🔑 **Need a key?** Go to the [Google Cloud Console](https://console.cloud.google.com/), create a project, enable "YouTube Data API v3", and generate an API Key.
+   * 🔑 **Need an API key?** Go to the [Google Cloud Console](https://console.cloud.google.com/), create a project, enable "YouTube Data API v3", and generate an API Key.
    * Create a file named `.env` in the root folder.
    * Add your key like this:
      ```
