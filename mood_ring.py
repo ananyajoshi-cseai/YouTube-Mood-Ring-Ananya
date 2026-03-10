@@ -30,7 +30,7 @@ except LookupError:
 
 analyzer = SentimentIntensityAnalyzer()
 
-# --- HELPER: EXTRACT ID FROM URL ---
+# --- HELPER: EXTRACT THE ID FROM URL ---
 def extract_video_id(url_or_id):
     # Regex to find the 11-character ID
     regex = r"(?:v=|\/)([0-9A-Za-z_-]{11}).*"
@@ -177,5 +177,6 @@ if __name__ == "__main__":
         
         # 2. Then Show Dashboard
         visualize_dashboard(df)
+
 
 
