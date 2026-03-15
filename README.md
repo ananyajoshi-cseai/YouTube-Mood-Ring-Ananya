@@ -112,7 +112,7 @@ This project is licensed under the MIT License To view, click on the [LICENSE](L
 ## 👤 Author
 
 **Ananya Joshi**
-* B.Tech in Computer Science and Artificial Intelligence (CSE AI)
+* B.Tech in Computer Science and Artificial Intelligence (CSE AI) 2025 - 29
 * Indira Gandhi Delhi Technical University for Women (IGDTUW)
 
 <p align="center">
