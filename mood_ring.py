@@ -15,7 +15,7 @@ try:
 except ImportError:
     WORDCLOUD_AVAILABLE = False
     print("Note: 'wordcloud' library not found. Skipping that chart.")
-# --- PART 1 ---
+
 # --- SETUP & SECURITY ---
 load_dotenv()
 API_KEY = os.getenv("YOUTUBE_API_KEY")
