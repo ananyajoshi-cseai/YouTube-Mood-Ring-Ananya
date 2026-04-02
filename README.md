@@ -5,6 +5,15 @@ A Python-based data science tool that performs automated sentiment analysis on Y
 ![Python](https://img.shields.io/badge/Python-3.x-blue?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
+## 📸 Screenshots
+
+### Sentiment Dashboard
+![Dashboard](example_dashboard.png)
+
+### Word Cloud
+![Word Cloud](example_wordcloud.png)
+
+---
 ## 🚀 Features
 
 * **Automated Fetching:** Retrieves thousands of comments using YouTube API pagination to avoid recency bias.
@@ -97,13 +106,7 @@ $$-0.05 < Compound \ Score < 0.05 \rightarrow \text{Neutral}$$
 $$Compound \ Score \leq -0.05 \rightarrow \text{Negative}$$
 
 ---
-## 📸 Screenshots
 
-### Sentiment Dashboard
-![Dashboard](example_dashboard.png)
-
-### Word Cloud
-![Word Cloud](example_wordcloud.png)
 
 ## 📄 License
 
