@@ -1,6 +1,6 @@
 # YouTube Mood Ring 💍📊
 
-A Python-based data science tool that performs automated sentiment analysis on YouTube comments. It extracts user data via the YouTube Data API v3, processes natural language using NLTK (VADER), and visualizes the "vibe" of a community over time.
+A Python-based data science tool that performs automated sentiment analysis on YouTube comments. It extracts user data via the YouTube Data API v3, processes natural language using NLTK (VADER), and visualizes the "vibe" of a community over time!
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
