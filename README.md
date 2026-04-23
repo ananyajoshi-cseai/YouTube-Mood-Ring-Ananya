@@ -114,8 +114,7 @@ This project is licensed under the MIT License To view, click on the [LICENSE](L
 
 ## 👩‍💻 About the Developer
 
-I am **Ananya Joshi**, a B.Tech student in **Computer Science and Artificial Intelligence** at **Indira Gandhi Delhi Technical University for Women (IGDTUW)**. I enjoy building tools that bridge the gap between complex data and user-friendly interfaces.
-
+I am **Ananya Joshi**, a B.Tech student in **Computer Science and Artificial Intelligence** at **Indira Gandhi Delhi Technical University for Women (IGDTUW)**.
 * **LinkedIn:** [ananya-joshi-cseai](https://www.linkedin.com/in/ananya-joshi-cseai/)
 * **GitHub:** [@ananyajoshi-cseai](https://github.com/ananyajoshi-cseai)
 * **Other Projects:** [After-Feel](https://github.com/ananyajoshi-cseai/after-feel) (AI Poetry Portfolio) and [CareerFlow AI](https://github.com/ananyajoshi-cseai/CareerFlow-AI).
