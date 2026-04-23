@@ -39,7 +39,7 @@ def extract_video_id(url_or_id):
         return match.group(1)
     return url_or_id
 
-# --- PART 2: THE FETCH ---
+# --- PART 1: THE FETCH ---
 def get_video_comments(video_id, max_comments=1000):
     print(f"--- Fetching up to {max_comments} comments for video: {video_id} ---")
     os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
