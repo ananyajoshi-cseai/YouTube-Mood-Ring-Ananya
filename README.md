@@ -72,7 +72,7 @@ A Python-based data science tool that performs automated sentiment analysis on Y
         ```bash
         python mood_ring.py
         ```
-     * **Tip:** Don't have an API key? You can check the ([comments_VIDEO-ID.csv](./comments_ERCMXc8x7mc.csv)) file included in this repo to see what the raw data looks like!
+     * **Tip:** Don't have an API key? You can check the ([comments_from_video_for_testing.csv](./comments_from_video_for_testing.csv)) file included in this repo to see what the raw data looks like!
 
 ## 📈 Output
 
