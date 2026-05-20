@@ -5,7 +5,7 @@ A Python-based data science tool that performs automated sentiment analysis on Y
 ![Python](https://img.shields.io/badge/Python-3.x-blue?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
-## 📸 Screenshots
+## 📸 Screenshot
 
 ### Sentiment Dashboard
 ![Dashboard](screenshots/example_dashboard.png)
