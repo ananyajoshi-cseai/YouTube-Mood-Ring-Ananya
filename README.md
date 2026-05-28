@@ -18,7 +18,7 @@ A Python-based data science tool that performs automated sentiment analysis on Y
 
 * **Automated Fetching:** Retrieves thousands of comments using YouTube API pagination to avoid recency biases.
 * **Sentiment Engine:** Classifies comments as Positive, Neutral, or Negative using VADER (Valence Aware Dictionary and sEntiment Reasoner).
-* **Time Series Analysis:** Tracks how audience sentiment shifts over months or years.
+* **Time Series Analysis:** Tracks how audience sentiment shifts over months or years according to comments.
 * **Engagement Correlation:** Analyzes if "hate-watching" (negative sentiment + high likes) is driving engagement.
 * **Visual Dashboard:** Generates a professional dashboard with:
     * **Pie Chart:** Overall mood distribution.
