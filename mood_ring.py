@@ -177,6 +177,3 @@ if __name__ == "__main__":
         
         # 2. Then Show Dashboard
         visualize_dashboard(df)
-
-
-
