@@ -8,7 +8,7 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import matplotlib.pyplot as plt
 from dotenv import load_dotenv
 
-# --- Feature: WordCloud. ---
+# --- FEATURE: WordCloud. ---
 try:
     from wordcloud import WordCloud
     WORDCLOUD_AVAILABLE = True
