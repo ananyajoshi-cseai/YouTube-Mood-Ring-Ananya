@@ -1,5 +1,4 @@
 import os
-import re
 import googleapiclient.discovery
 from googleapiclient.errors import HttpError
 import pandas as pd
@@ -7,6 +6,7 @@ import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import matplotlib.pyplot as plt
 from dotenv import load_dotenv
+from mood_ring_utils import extract_video_id, load_comments_csv_rows
 
 # --- FEATURE: WordCloud. ---
 try:
@@ -19,9 +19,9 @@ except ImportError:
 # --- SETUP & SECURITY ---
 load_dotenv()
 API_KEY = os.getenv("YOUTUBE_API_KEY")
-
-if not API_KEY:
-    raise ValueError("CRITICAL: API Key not found. Please check your .env file.")
+VIDEO_URL = "https://www.youtube.com/watch?v=ERCMXc8x7mc"
+INPUT_CSV = ""
+MAX_COMMENTS = 1000
 
 try:
     nltk.data.find('sentiment/vader_lexicon.zip')
@@ -30,17 +30,15 @@ except LookupError:
 
 analyzer = SentimentIntensityAnalyzer()
 
-# --- HELPER: EXTRACT THE ID FROM URL ---
-def extract_video_id(url_or_id):
-    # Regex to find the 11-character ID
-    regex = r"(?:v=|\/)([0-9A-Za-z_-]{11}).*"
-    match = re.search(regex, url_or_id)
-    if match:
-        return match.group(1)
-    return url_or_id
+
+def load_comments_csv(path):
+    return pd.DataFrame(load_comments_csv_rows(path))
 
 # --- PART 1: THE FETCH ---
 def get_video_comments(video_id, max_comments=1000):
+    if not API_KEY:
+        raise ValueError("API key not found. Add YOUTUBE_API_KEY to .env or set INPUT_CSV.")
+
     print(f"--- Fetching up to {max_comments} comments for video: {video_id} ---")
     os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
     
@@ -157,13 +155,14 @@ def visualize_dashboard(df):
 
 # --- MAIN EXECUTION ---
 if __name__ == "__main__":
-    
-    # Replace with your video ID or Link
-    VIDEO_URL = "https://www.youtube.com/watch?v=ERCMXc8x7mc" 
-    
-    video_id = extract_video_id(VIDEO_URL)
-    
-    df = get_video_comments(video_id, max_comments=1000)
+
+    if INPUT_CSV:
+        video_id = os.path.splitext(os.path.basename(INPUT_CSV))[0]
+        df = load_comments_csv(INPUT_CSV)
+    else:
+        video_id = extract_video_id(VIDEO_URL)
+        df = get_video_comments(video_id, max_comments=MAX_COMMENTS)
+
     df = analyze_sentiment(df)
     
     if not df.empty:

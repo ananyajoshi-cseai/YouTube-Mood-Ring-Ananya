@@ -68,6 +68,9 @@ A Python-based data science tool that performs automated sentiment analysis on Y
 
 5.  **Run the analysis:**
     * Open `mood_ring.py` and paste the YouTube Video URL you want to analyze.
+    * Or set `INPUT_CSV` to a local CSV export. The importer accepts `text`,
+      `comment`, `review`, `tweet_text`, and `Tweet Text` columns, including
+      Xquik exports.
     * Run the script:
         ```bash
         python mood_ring.py
