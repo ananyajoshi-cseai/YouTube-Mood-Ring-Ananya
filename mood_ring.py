@@ -155,7 +155,7 @@ def visualize_dashboard(df):
     plt.tight_layout(rect=[0, 0.03, 1, 0.95])
     plt.show()
 
-# --- MAIN EXECUTION ---
+# --- MAIN EXECUTION BODY ---
 if __name__ == "__main__":
     
     # Replace with your video ID or Link
