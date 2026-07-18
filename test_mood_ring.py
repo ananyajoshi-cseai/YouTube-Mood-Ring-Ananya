@@ -2,7 +2,7 @@ import os
 from tempfile import TemporaryDirectory
 import unittest
 
-from mood_ring_utils import extract_video_id, load_comments_csv_rows
+from mood_ring_utils import extract_video_id, load_comments_csv_rows, parse_like_count
 
 
 class MoodRingTests(unittest.TestCase):
@@ -27,6 +27,12 @@ class MoodRingTests(unittest.TestCase):
         self.assertEqual(len(rows), 1)
         self.assertEqual(rows[0]["text"], "Great launch")
         self.assertEqual(rows[0]["author"], "alice")
+
+    def test_normalizes_exported_like_counts(self):
+        self.assertEqual(parse_like_count("1,234"), 1234)
+        self.assertEqual(parse_like_count("4.9"), 4)
+        self.assertEqual(parse_like_count(-5), 0)
+        self.assertEqual(parse_like_count("Infinity"), 0)
 
 
 if __name__ == "__main__":

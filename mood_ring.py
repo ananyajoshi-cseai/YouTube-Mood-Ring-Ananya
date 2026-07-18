@@ -41,11 +41,11 @@ def get_video_comments(video_id, max_comments=1000):
 
     print(f"--- Fetching up to {max_comments} comments for video: {video_id} ---")
     os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
-    
+
     youtube = googleapiclient.discovery.build("youtube", "v3", developerKey=API_KEY)
     comments_data = []
     next_page_token = None
-    
+
     try:
         while len(comments_data) < max_comments:
             request = youtube.commentThreads().list(
@@ -53,7 +53,7 @@ def get_video_comments(video_id, max_comments=1000):
                 textFormat="plainText", pageToken=next_page_token, order="relevance"
             )
             response = request.execute()
-            
+
             for item in response['items']:
                 comment = item['snippet']['topLevelComment']['snippet']
                 comments_data.append({
@@ -62,43 +62,43 @@ def get_video_comments(video_id, max_comments=1000):
                     'author': comment['authorDisplayName'],
                     'date': comment['publishedAt']
                 })
-            
+
             next_page_token = response.get('nextPageToken')
             print(f"Fetched {len(comments_data)} comments...")
-            if not next_page_token: break 
-                
+            if not next_page_token: break
+
     except HttpError as e:
         if e.resp.status == 403: print("Error: Comments disabled.")
         elif e.resp.status == 404: print("Error: Video not found.")
         else: print(f"API Error: {e}")
-            
+
     return pd.DataFrame(comments_data)
 
 # --- PART 3: THE JUDGE ---
 def analyze_sentiment(df):
     if df.empty: return df
     print("--- Judging Sentiment (VADER) ---")
-    
+
     df['compound_score'] = df['text'].apply(lambda x: analyzer.polarity_scores(str(x))['compound'])
-    
+
     def categorize(score):
         if score >= 0.05: return 'Positive'
         elif score <= -0.05: return 'Negative'
         else: return 'Neutral'
-        
+
     df['category'] = df['compound_score'].apply(categorize)
     return df
 
 # --- PART 4: WORD CLOUD ---
 def show_wordcloud(df):
     if not WORDCLOUD_AVAILABLE or df.empty: return
-    
+
     print("--- Generating Word Cloud ---")
     text = " ".join(comment for comment in df.text.astype(str))
-    
+
     # Create cloud
     wc = WordCloud(width=800, height=400, background_color='white', colormap='viridis').generate(text)
-    
+
     plt.figure(figsize=(10, 5))
     plt.imshow(wc, interpolation='bilinear')
     plt.axis("off")
@@ -111,7 +111,7 @@ def visualize_dashboard(df):
 
     print("--- Generating Dashboard ---")
     color_map = {'Positive': '#2ecc71', 'Neutral': '#95a5a6', 'Negative': '#e74c3c'}
-    
+
     # Create a larger canvas for 4 charts
     fig = plt.figure(figsize=(16, 12))
     fig.suptitle('YouTube Mood Ring: Time Series Edition', fontsize=20)
@@ -119,8 +119,8 @@ def visualize_dashboard(df):
     # 1. Pie Chart
     ax1 = plt.subplot(2, 2, 1)
     counts = df['category'].value_counts()
-    ax1.pie(counts, labels=counts.index, autopct='%1.1f%%', 
-            colors=[color_map.get(key, '#333333') for key in counts.index], 
+    ax1.pie(counts, labels=counts.index, autopct='%1.1f%%',
+            colors=[color_map.get(key, '#333333') for key in counts.index],
             startangle=90, explode=[0.05]*len(counts))
     ax1.set_title('Sentiment Distribution')
 
@@ -143,7 +143,7 @@ def visualize_dashboard(df):
     ax4 = plt.subplot(2, 2, 4)
     df['dt'] = pd.to_datetime(df['date'])
     sentiment_over_time = df.set_index('dt').resample('M')['compound_score'].mean()
-    
+
     sentiment_over_time.plot(ax=ax4, color='blue', marker='o', linestyle='-')
     ax4.set_title('Average Mood Over Time (Monthly)')
     ax4.set_ylabel('Avg Sentiment (-1 to +1)')
@@ -153,7 +153,7 @@ def visualize_dashboard(df):
     plt.tight_layout(rect=[0, 0.03, 1, 0.95])
     plt.show()
 
-# --- MAIN EXECUTION ---
+# --- MAIN EXECUTION BODY ---
 if __name__ == "__main__":
 
     if INPUT_CSV:
@@ -164,7 +164,7 @@ if __name__ == "__main__":
         df = get_video_comments(video_id, max_comments=MAX_COMMENTS)
 
     df = analyze_sentiment(df)
-    
+
     if not df.empty:
         try:
             df.to_csv(f"comments_{video_id}.csv", index=False)
@@ -173,6 +173,6 @@ if __name__ == "__main__":
 
         # 1. Show Word Cloud First
         show_wordcloud(df)
-        
+
         # 2. Then Show Dashboard
         visualize_dashboard(df)

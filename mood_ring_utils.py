@@ -45,13 +45,16 @@ def extract_video_id(url_or_id):
 def parse_like_count(value):
     if value is None or str(value).strip() == "":
         return 0
+
+    normalized = str(value).strip().replace(",", "")
     try:
-        return int(value)
+        parsed = int(normalized)
     except (TypeError, ValueError):
         try:
-            return int(float(str(value).strip()))
-        except (TypeError, ValueError):
+            parsed = int(float(normalized))
+        except (TypeError, ValueError, OverflowError):
             return 0
+    return max(0, parsed)
 
 
 def load_comments_csv_rows(path):

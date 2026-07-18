@@ -1,6 +1,6 @@
 # YouTube Mood Ring 📊
 
-A Python-based data science tool that performs automated sentiment analysis on YouTube comments. It extracts user data via the YouTube Data API v3, processes natural language using NLTK (VADER), and visualizes the "vibe" of a community over time!
+A Python-based data science tool that performs automated sentiment analysis on YouTube comments. It extracts user data via the YouTube Data API v3, processes natural language using NLTK (VADER), and visualizes the "vibe" of a community over time
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
@@ -17,7 +17,7 @@ A Python-based data science tool that performs automated sentiment analysis on Y
 ## 🚀 Features
 
 * **Automated Fetching:** Retrieves thousands of comments using YouTube API pagination to avoid recency biases.
-* **Sentiment Engine:** Classifies comments as Positive, Neutral, or Negative using VADER (Valence Aware Dictionary and sEntiment Reasoner).
+* **Sentiment Engine:** Classifies comments as Positive, Neutral, or Negative using VADER (Valence Aware Dictionary and sEntiment Reasoner)
 * **Time Series Analysis:** Tracks how audience sentiment shifts over months or years according to comments.
 * **Engagement Correlation:** Analyzes if "hate-watching" (negative sentiment + high likes) is driving engagement.
 * **Visual Dashboard:** Generates a professional dashboard with:
@@ -71,6 +71,7 @@ A Python-based data science tool that performs automated sentiment analysis on Y
     * Or set `INPUT_CSV` to a local CSV export. The importer accepts `text`,
       `comment`, `review`, `tweet_text`, and `Tweet Text` columns, including
       Xquik exports.
+    * Xquik is an independent third-party service. Not affiliated with X Corp. "Twitter" and "X" are trademarks of X Corp.
     * Run the script:
         ```bash
         python mood_ring.py
