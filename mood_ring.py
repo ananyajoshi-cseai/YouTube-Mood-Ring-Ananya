@@ -171,7 +171,7 @@ if __name__ == "__main__":
             print(f"Saved CSV.")
         except: pass
 
-        # 1. Show Word Cloud First
+        # 1. Show Word Cloud
         show_wordcloud(df)
 
         # 2. Then Show Dashboard
