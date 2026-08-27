@@ -29,7 +29,7 @@ def first_matching_column(columns, aliases):
             return column
     return None
 
-
+# Extracting video id from url
 def extract_video_id(url_or_id):
     value = str(url_or_id).strip()
     if YOUTUBE_ID_RE.fullmatch(value):
