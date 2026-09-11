@@ -21,11 +21,11 @@ A Python-based data science tool that performs automated sentiment analysis on Y
 * **Time Series Analysis:** Tracks how audience sentiment shifts over months or years according to comments.
 * **Engagement Correlation:** Analyzes if "hate-watching" (negative sentiment + high likes) is driving engagement.
 * **Visual Dashboard:** Generates a professional dashboard with:
-    * **Pie Chart:** Overall mood distribution.
-    * **Bar Chart:** Comment volume by sentiment.
-    * **Scatter Plot:** Graph of Sentiment vs. Like Count.
-    * **Time Series Line:** Average mood over time.
-    * **Word Cloud:** Most frequent topics discussed.
+    * **Pie Chart:** Overall mood distribution
+    * **Bar Chart:** Comment volume by sentiment
+    * **Scatter Plot:** Graph of Sentiment vs. Like Count
+    * **Time Series Line:** Average mood over time
+    * **Word Cloud:** Most frequent topics discussed
 
 ## 🛠️ Tech Stack
 
