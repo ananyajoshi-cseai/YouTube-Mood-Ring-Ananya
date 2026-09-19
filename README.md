@@ -30,11 +30,11 @@ A Python-based data science tool that performs automated sentiment analysis on Y
 ## 🛠️ Tech Stack
 
 * **Python 3.x**
-* **Pandas:** Data manipulation and CSV export.
-* **NLTK:** Natural Language Processing (VADER).
-* **Matplotlib:** Data visualization and dashboard generation.
-* **WordCloud:** Text visualization.
-* **Google Client Library:** API interaction.
+* **Pandas:** Data manipulation and CSV export
+* **NLTK:** Natural Language Processing (VADER)
+* **Matplotlib:** Data visualization and dashboard generation
+* **WordCloud:** Text visualization
+* **Google Client Library:** API interaction
 
 ## ⚙️ Installation & Usage
 
