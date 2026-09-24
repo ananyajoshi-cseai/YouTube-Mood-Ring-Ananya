@@ -7,7 +7,7 @@ A Python-based data science tool that performs automated sentiment analysis on Y
 
 ## 📸 Screenshot
 
-### Sentiment Dashboard
+### The Sentiment Dashboard
 ![Dashboard](screenshots/example_dashboard.png)
 
 ### Word Cloud
