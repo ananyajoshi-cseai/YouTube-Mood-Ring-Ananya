@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from dotenv import load_dotenv
 from mood_ring_utils import extract_video_id, load_comments_csv_rows
 
-# --- FEATURE: WordCloud. ---
+# --- FEATURE: WordCloud ---
 try:
     from wordcloud import WordCloud
     WORDCLOUD_AVAILABLE = True
@@ -171,8 +171,8 @@ if __name__ == "__main__":
             print(f"Saved CSV.")
         except: pass
 
-        # 1. Show Word Cloud
+        # 1. Show the WordCloud
         show_wordcloud(df)
 
-        # 2. Then Show Dashboard
+        # 2. Then Show the Dashboard
         visualize_dashboard(df)
