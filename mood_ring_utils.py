@@ -17,7 +17,7 @@ LIKES_COLUMN_ALIASES = ("likes", "like_count", "like count", "favorite_count")
 AUTHOR_COLUMN_ALIASES = ("author", "author_name", "author username", "username")
 DATE_COLUMN_ALIASES = ("date", "published_at", "published at", "created_at")
 
-
+# Generalize columns
 def normalize_column(column):
     return str(column).strip().lower().replace("_", " ")
 
