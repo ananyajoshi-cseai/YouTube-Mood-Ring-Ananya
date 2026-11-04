@@ -71,7 +71,7 @@ A Python-based data science tool that performs automated sentiment analysis on Y
     * Or set `INPUT_CSV` to a local CSV export. The importer accepts `text`,
       `comment`, `review`, `tweet_text`, and `Tweet Text` columns, including
       Xquik exports.
-    * Xquik is an independent third-party service. Not affiliated with X Corp. "Twitter" and "X" are trademarks of X Corp.
+    * Xquik is an independent third-party service. Not affiliated with X Corp. "Twitter" and "X" are trademarks of X Corp
     * Run the script:
         ```bash
         python mood_ring.py
