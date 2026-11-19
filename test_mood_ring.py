@@ -27,7 +27,7 @@ class MoodRingTests(unittest.TestCase):
         self.assertEqual(len(rows), 1)
         self.assertEqual(rows[0]["text"], "Great launch")
         self.assertEqual(rows[0]["author"], "alice")
-
+#test normalizer
     def test_normalizes_exported_like_counts(self):
         self.assertEqual(parse_like_count("1,234"), 1234)
         self.assertEqual(parse_like_count("4.9"), 4)
